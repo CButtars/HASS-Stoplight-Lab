@@ -1,0 +1,47 @@
+esphome:
+  name: garage_stoplight_leds
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "Redacted"
+  password: "Redacted"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Garage Stoplight Leds"
+    password: "[random password]"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+output:
+  - platform: gpio
+    pin: D1
+    id: green_led
+
+  - platform: gpio
+    pin: D2
+    id: yellow_led
+
+  - platform: gpio
+    pin: D3
+    id: red_led
+    
+switch:
+  - platform: output
+    name: 'Green LED'
+    output: 'green_led'
+  - platform: output
+    name: 'Yellow LED'
+    output: 'yellow_led'
+  - platform: output
+    name: 'Red LED'
+    output: 'red_led'
