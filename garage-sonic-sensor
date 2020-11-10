@@ -1,0 +1,31 @@
+esphome:
+  name: garage_sonic_sensor
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "Redacted"
+  password: "Redacted"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Garage Sonic Sensor"
+    password: "[random password]"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Example configuration entry
+sensor:
+  - platform: ultrasonic
+    trigger_pin: D6
+    echo_pin: D5
+    name: "Ultrasonic Sensor"
+    update_interval: 1s
