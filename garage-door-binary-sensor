@@ -1,0 +1,31 @@
+esphome:
+  name: garage_door_binary_sensor
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "Redacted"
+  password: "Redacted"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Garage Door Binary Sensor"
+    password: "[randomly generated password]"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    name: "Garage Door"
+    pin:
+      number: D4
+      inverted: True
+      mode: INPUT_PULLUP
